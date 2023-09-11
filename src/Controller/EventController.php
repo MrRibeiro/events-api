@@ -41,8 +41,8 @@ class EventController extends AbstractController
     $event = new Event();
     $event->setName($data['name']);
     $event->setDescription($data['description']);
-    $event->setInitHour($data['init_hour']);
-    $event->setEndHour($data['end_hour']);
+    $event->setInitHour($data['initHour']);
+    $event->setEndHour($data['endHour']);
     $event->setDate(new DateTime($data['date']));
     $event->setCreatedAt(new \DateTimeImmutable('now', new \DateTimeZone('America/Fortaleza')));
     $event->setUpdatedAt(new \DateTimeImmutable('now', new \DateTimeZone('America/Fortaleza')));
@@ -55,7 +55,7 @@ class EventController extends AbstractController
     ], 201);
   }
 
-  #[Route('/events/{event}', name: 'events_update', methods: ['PUT', 'PATCH'])]
+  #[Route('/events/{event}', name: 'events_update', methods: ['PUT'])]
   public function update(int $event, Request $request, ManagerRegistry $doctrine, EventRepository $eventRepository): JsonResponse
   {
     if ($request->headers->get('Content-Type') == 'application/json') {
@@ -70,8 +70,8 @@ class EventController extends AbstractController
 
     $event->setName($data['name']);
     $event->setDescription($data['description']);
-    $event->setInitHour($data['init_hour']);
-    $event->setEndHour($data['end_hour']);
+    $event->setInitHour($data['initHour']);
+    $event->setEndHour($data['endHour']);
     $event->setDate(new DateTime($data['date']));
     $event->setUpdatedAt(new \DateTimeImmutable('now', new \DateTimeZone('America/Fortaleza')));
 
@@ -83,7 +83,7 @@ class EventController extends AbstractController
     ], 200);
   }
 
-  #[Route('/events/{event}', name: 'events_update', methods: ['DELETE'])]
+  #[Route('/events/{event}', name: 'events_delete', methods: ['DELETE'])]
   public function remove(int $event, Request $request, EventRepository $eventRepository): JsonResponse
   {
     $event = $eventRepository->find($event);
