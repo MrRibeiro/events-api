@@ -2,6 +2,8 @@
 
 API CRUD de eventos utilizando Symfony
 
+requirements: PHP 8.1 or higher and composer with https://getcomposer.org/download/
+
 Subir o ambiente:
 
 ```sh
