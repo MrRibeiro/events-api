@@ -8,6 +8,12 @@ Subir o ambiente:
 docker-compose up -d
 ```
 
+Instalar as dependencias:
+
+```sh
+composer install
+```
+
 Execute o servidor:
 
 ```sh
